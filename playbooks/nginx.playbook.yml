@@ -1,0 +1,7 @@
+---
+- name: Configure Nginx Server Group
+  hosts: nginx_group
+  tasks:
+    - name: Include Nginx role
+      include_role:
+        name: nginx

@@ -1,0 +1,22 @@
+---
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+  become: yes
+
+- name: Start Apache service
+  service:
+    name: apache2
+    state: started
+  become: yes
+
+- name: Copy HTML file to Apache server
+  copy:
+    src: files/apache/index.html
+    dest: /var/www/html/index.html
+  become: yes
+
+- name: Post-installation message for Apache
+  debug:
+    msg: "Apache server is up and running."

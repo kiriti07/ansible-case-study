@@ -1,0 +1,22 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+  become: yes
+
+- name: Start Nginx service
+  service:
+    name: nginx
+    state: started
+  become: yes
+
+- name: Copy HTML file to Nginx server
+  copy:
+    src: files/nginx/index.html
+    dest: /usr/share/nginx/html/index.html
+  become: yes
+
+- name: Post-installation message for Nginx
+  debug:
+    msg: "Nginx server is up and running."

@@ -1,0 +1,12 @@
+---
+- name: Configure Apache Server Group
+  hosts: apache_group
+  tasks:
+    - name: Include Apache role
+      include_role:
+        name: apache
+
+- name: Install Java on Apache Server Group
+  hosts: apache_group
+  roles:
+    - java
