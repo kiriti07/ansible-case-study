@@ -1,12 +1,5 @@
 ---
-- name: Configure Apache Server Group
-  hosts: apache_group
-  tasks:
-    - name: Include Apache role
-      include_role:
-        name: apache
-
-- name: Install Java on Apache Server Group
-  hosts: apache_group
+- hosts: apache_servers
   roles:
-    - java
+    - role: apache  # This should match the role directory name
+    - role: java    # If you want to include the Java role as well

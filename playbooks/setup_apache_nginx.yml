@@ -1,0 +1,9 @@
+---
+- hosts: apache_servers
+  roles:
+    - apache
+
+- hosts: nginx_servers
+  roles:
+    - nginx
+
